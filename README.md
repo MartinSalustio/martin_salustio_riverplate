@@ -8,6 +8,7 @@
 ### Docente: Anderson Michel Torres.
 ### Tutores: Nicolás Maugeri y Hugo González.
 
+
 ## **Introducción**
 
 La base de datos ‘riverplate’ fue creada para gestionar y almacenar información relacionada con el Club Atlético River Plate (CARP), uno de los clubes más importantes del fútbol argentino. Esta base de datos abarca múltiples aspectos en torno al primer equipo de fútbol masculino que se desempeñó durante el segundo semestre del año 2024, incluyendo jugadores, cuerpo técnico, partidos, competiciones y aspectos médicos.
@@ -38,7 +39,9 @@ El modelo de negocio representado en esta base de datos se centra en las operaci
 - Control médico y de sanciones: control de la disponibilidad del plantel.
 - Administración de competiciones: gestión de los torneos de los que forma parte el club.
 
-## **Tablas sin FK**
+## **Creación de las tablas**
+
+### **Tablas sin FK**
 
 - ‘posicion’: contiene las posiciones que ocupan los jugadores en los partidos.
   - id_posicion INT NOT NULL AUTO_INCREMENT PRIMARY KEY.
@@ -71,7 +74,7 @@ El modelo de negocio representado en esta base de datos se centra en las operaci
   - ubicacion VARCHAR(200).
   - capacidad INT.
 
-## **Tablas con FK**
+### **Tablas con FK**
 
 - ‘club’: representa a los rivales a los que se tiene que enfrentar el club.
   - id_club INT NOT NULL AUTO_INCREMENT PRIMARY KEY.
@@ -114,7 +117,7 @@ El modelo de negocio representado en esta base de datos se centra en las operaci
   - goles_realizados INT.
   - goles_recibidos INT.
 
-## **Tablas intermedias**
+### **Tablas intermedias**
 
 - ‘lesion_jugador’: sirve para gestionar las fechas en las que los jugadores no están disponibles debido a complicaciones médicas.
   - id_lesion_jugador INT NOT NULL AUTO_INCREMENT PRIMARY KEY.
@@ -142,3 +145,14 @@ El modelo de negocio representado en esta base de datos se centra en las operaci
   - amarilla BOOLEAN.
   - doble_amarilla BOOLEAN.
   - roja BOOLEAN.
+
+## **Objetos de la base de datos: vistas**
+
+### **Vista'vw_calcular_edad'**
+
+Descripción: sirve para calcular la edad de los jugadores restando la fecha actual con la fecha de nacimiento de cada uno.
+
+Columnas:
+  - nombre: nombre del jugador.
+  - apellido: apellido del jugador.
+  - edad: calcula automáticamente la edad del jugador. 
