@@ -1,4 +1,4 @@
-https://github.com/MartinSalustio/martin_salustio_riverplate/blob/main/images/portada_riverplate.jpg
+![portada_riverplate](https://github.com/user-attachments/assets/df1cd21b-fbb8-46f3-af41-4084be826847)
 
 # Proyecto: riverplate
 
