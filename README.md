@@ -155,4 +155,11 @@ Descripción: sirve para calcular la edad de los jugadores restando la fecha act
 Columnas:
   - nombre: nombre del jugador.
   - apellido: apellido del jugador.
-  - edad: calcula automáticamente la edad del jugador. 
+  - edad: calcula automáticamente la edad del jugador.
+
+## Herramientas utilizadas en el proyecto
+
+- Excalidraw: funcionó como la herramienta de dibujo que utilicé para crear el Diagrama de Entidad-Relación (DER).
+- GitHub: funcionó como la plataforma en la cual pude crear un repositorio para almacenar allí mi proyecto final.
+- MySQL: funcionó como el sistema de gestión de bases de datos relacionales que me permitió almacenar y manipular datos.
+- MySQL Workbench: funcionó como la interfaz gráfica que me permitió trabajar con bases de datos MySQL.
