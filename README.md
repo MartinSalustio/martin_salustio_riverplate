@@ -1,4 +1,4 @@
-![portada proyecto riverplate] (images/portada_riverplate.jpg)
+![portada proyecto riverplate] (https://github.com/MartinSalustio/martin_salustio_riverplate/blob/main/images/portada_riverplate.jpg)
 
 # Proyecto: riverplate
 
