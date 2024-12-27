@@ -2,6 +2,12 @@
 
 # Proyecto: riverplate
 
+### Alumno: Martín Salustio.
+### Curso: Coderhouse SQL.
+### Comisión: 59430.
+### Docente: Anderson Michel Torres.
+### Tutores: Nicolás Maugeri y Hugo González.
+
 ## **Introducción**
 
 La base de datos ‘riverplate’ fue creada para gestionar y almacenar información relacionada con el Club Atlético River Plate (CARP), uno de los clubes más importantes del fútbol argentino. Esta base de datos abarca múltiples aspectos en torno al primer equipo de fútbol masculino que se desempeñó durante el segundo semestre del año 2024, incluyendo jugadores, cuerpo técnico, partidos, competiciones y aspectos médicos.
