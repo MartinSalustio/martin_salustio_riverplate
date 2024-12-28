@@ -1,7 +1,5 @@
 -- CREACIÓN DE USUARIOS Y ROLES
 
-USE riverplate;
-
 -- CREACIÓN DE USUARIOS
 CREATE USER IF NOT EXISTS 'jorge_brito'@'%' IDENTIFIED BY 'brito1';
 CREATE USER IF NOT EXISTS 'matias_patanian'@'%' IDENTIFIED BY 'patanian2';
