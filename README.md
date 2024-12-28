@@ -8,7 +8,6 @@
 ### Docente: Anderson Michel Torres.
 ### Tutores: Nicolás Maugeri y Hugo González.
 
-
 ## **Introducción**
 
 La base de datos ‘riverplate’ fue creada para gestionar y almacenar información relacionada con el Club Atlético River Plate (CARP), uno de los clubes más importantes del fútbol argentino. Esta base de datos abarca múltiples aspectos en torno al primer equipo de fútbol masculino que se desempeñó durante el segundo semestre del año 2024, incluyendo jugadores, cuerpo técnico, partidos, competiciones y aspectos médicos.
@@ -156,6 +155,166 @@ Columnas:
   - nombre: nombre del jugador.
   - apellido: apellido del jugador.
   - edad: calcula automáticamente la edad del jugador.
+
+Uso: SELECT * FROM vw_calcular_edad;
+
+### **Vista'vw_calcular_antiguedad'**
+
+Descripción: Calcula los años de antigüedad de los jugadores en el club.
+
+Columnas:
+  - nombre: Nombre del jugador.
+  - apellido: Apellido del jugador.
+  - antiguedad: Antigüedad en años.
+
+Uso: SELECT * FROM vw_calcular_antiguedad;
+
+### **Vista'vw_contratos_por_vencer'**
+
+Descripción: Muestra los jugadores cuyos contratos terminan en el año vigente.
+
+Columnas:
+  - nombre: Nombre del jugador.
+  - apellido: Apellido del jugador.
+  - fin_contrato: Fecha de vencimiento del contrato.
+
+Uso: SELECT * FROM vw_contratos_por_vencer;
+
+### **Vista'vw_partido_detalle'**
+
+Descripción: Proporciona detalles completos de los partidos jugados.
+
+Columnas:
+  - nombre_competicion: Competición.
+  - nombre_estadio: Estadio.
+  - nombre_club: Club rival.
+  - apellido: Árbitro.
+  - detalle_alineacion: Alineación del equipo.
+  - detalle_resultado: Resultado del partido.
+  - fecha: Fecha del partido.
+  - goles_realizados: Goles realizados.
+  - goles_recibidos: Goles recibidos.
+
+Uso: SELECT * FROM vw_partido_detalle;
+
+### **Vista'vw_jugador_partido_detalle'**
+
+Descripción: Muestra el rendimiento detallado de cada jugador en los partidos.
+
+Columnas:
+  - fecha: Fecha del partido.
+  - nombre_competicion: Competición.
+  - nombre_estadio: Estadio.
+  - nombre_club: Club rival.
+  - nombre: Nombre del jugador.
+  - apellido: Apellido del jugador.
+  - minutos_jugados: Minutos jugados.
+  - goles: Goles marcados.
+  - asistencias: Asistencias realizadas.
+  - goles_recibidos: Goles recibidos.
+  - amarilla: Tarjetas amarillas.
+  - doble_amarilla: Dobles amarillas.
+  - roja: Tarjetas rojas.
+
+Uso: SELECT * FROM vw_jugador_partido_detalle;
+
+### **Vista'vw_cantidad_jugadores_club'**
+
+Descripción: Identifica el club que más jugadores ha aportado al plantel.
+
+Columnas:
+  - nombre_club: Nombre del club.
+  - cantidad_jugadores: Cantidad de jugadores provenientes de ese club.
+
+Uso: SELECT * FROM vw_cantidad_jugadores_club;
+
+### **Función'fx_goles_competicion'**
+
+Descripción: Calcula la cantidad de goles marcados por un jugador en una competición específica.
+
+Parámetros:
+  - _id_jugador: ID del jugador.
+  - _id_competicion: ID de la competición.
+
+Uso: SELECT fx_goles_competicion(24, 2);
+
+### **Función'fx_asistencias_competicion'**
+
+Descripción: Calcula la cantidad de asistencias realizadas por un jugador en una competición específica.
+
+Parámetros:
+  - _id_jugador: ID del jugador.
+  - _id_competicion: ID de la competición.
+
+Uso: SELECT fx_asistencias_competicion(21, 2);
+
+### **Función'fx_rojas_competicion'**
+
+Descripción: Calcula la cantidad de tarjetas rojas recibidas por un jugador en una competición específica.
+
+Parámetros:
+  - _id_jugador: ID del jugador.
+  - _id_competicion: ID de la competición.
+
+Uso: SELECT fx_rojas_competicion(6, 2);
+
+### **Función'fx_amarillas_competicion'**
+
+Descripción: Calcula la cantidad de tarjetas amarillas recibidas por un jugador en una competición específica.
+
+Parámetros:
+  - _id_jugador: ID del jugador.
+  - _id_competicion: ID de la competición.
+
+Uso: SELECT fx_amarillas_competicion(29, 2);
+
+### **Procedimiento'sp_registrar_partido'**
+
+Descripción: Registra un nuevo partido en la base de datos.
+
+Parámetros:
+  - Detalles del partido (competición, estadio, club, árbitro, alineación, resultado, fecha, goles realizados, goles recibidos).
+
+Uso: CALL sp_registrar_partido(2, 1, 15, 11, 5, 1, CURDATE(), 2, 0);
+
+### **Procedimiento'sp_actualizar_contrato'**
+
+Descripción: Actualiza la fecha de finalización de contrato de un jugador.
+
+Parámetros:
+  - sp_id_jugador: ID del jugador.
+  - sp_fin_contrato: Nueva fecha de fin de contrato.
+  - sp_ultima_renovacion: Fecha de la última renovación.
+
+Uso: CALL sp_actualizar_contrato(21, '2030-12-31', CURDATE());
+
+### **Trigger't_verificar_goles_partido_insert'**
+
+Descripción: Verifica que los goles realizados o recibidos no sean negativos al insertar un partido.
+
+### **Trigger't_verificar_capacidad_estadio_insert'**
+
+Descripción: Asegura que la capacidad del estadio no sea negativa al insertar un nuevo registro.
+
+### **Trigger't_verificar_socios_club_insert'**
+
+Descripción: Valida que la cantidad de socios de un club no sea negativa al insertar un club.
+
+Uso de triggers: Activados automáticamente en las operaciones correspondientes.
+
+### **Usuario: jorge_brito**
+
+Descripción: al ser el presidente y la máxima autoridad del Club Atlético River Plate, tiene acceso como administrador a la base de datos con todos los permisos.
+
+### **Usuarios: matias_patanian e ignacio_villarroel**
+
+Descripción: al ser los vicepresidentes del Club Atlético River Plate, tienen acceso a la totalidad de la base de datos. Sin embargo, al no trabajar en algo relacionado a la gestión de la información, no necesitan permisos de edición, solo de lectura.
+
+Los vicepresidentes tienen el rol llamado 'role_vicepresidente' para facilitar el hecho de darles los mismos permisos a ambos.
+
+### **Usuario: enzo_francescoli**
+
+Descripción: al ser el director deportivo del Club Atlético River Plate, tiene acceso a las tablas relacionadas con los jugadores, con el objetivo de que pueda ver sus desempeños en la cancha y cómo están físicamente. De esta manera, podrá cumplir con su rol de fichar jugadores que cubran las debilidades del plantel actual.
 
 ## Herramientas utilizadas en el proyecto
 
